@@ -31,7 +31,7 @@ const User = () => {
     };
   }, []);
 
-  return <div>Users</div>;
+  return <div>User</div>;
 };
 
 export default User;

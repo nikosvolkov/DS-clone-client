@@ -10,8 +10,6 @@ const useAxiosInterceptors = () => {
   useEffect(() => {
     const requestInterceptor = $api.interceptors.request.use(
       (config) => {
-        console.log('Config headers: ',config.headers);
-        
         if (!config.headers['Authorization']) {
           config.headers['Authorization'] = `Bearer ${auth?.accessToken}`;
         }
@@ -38,7 +36,6 @@ const useAxiosInterceptors = () => {
       }
     );
     return () => {
-      console.log('Удаляем интерцепторы')
       $api.interceptors.response.eject(responseInterceptor);
       $api.interceptors.request.eject(requestInterceptor);
     };
